@@ -6,17 +6,17 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: b0285338129efd5538e2d9a715ed435f979f6b1ae33aad068f34e7e83e6b4313
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --verbose"
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip >=18.1
     - six >=1.11.0
     - click >=6.0
@@ -27,6 +27,8 @@ requirements:
     - requests
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - atlasclient
     - atlasclient.base
