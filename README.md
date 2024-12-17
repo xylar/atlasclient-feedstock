@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/atlasclient-fee
 
 Home: https://github.com/jpoullet2000/atlasclient
 
-Package license: Apache 2.0
+Package license: Apache-2.0
 
 Summary: Apache Atlas client in Python
 
