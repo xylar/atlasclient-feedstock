@@ -12,23 +12,23 @@ source:
 build:
   noarch: python
   number: 1
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --verbose"
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - python {{ python_min }}
-    - pip >=18.1
+    - pip
+    - setuptools
+  run:
+    - python >={{ python_min }}
     - six >=1.11.0
     - click >=6.0
     - requests >=2.18.4
-  run:
-    - six
-    - click
-    - requests
 
 test:
   requires:
     - python {{ python_min }}
+    - pip
   imports:
     - atlasclient
     - atlasclient.base
@@ -37,13 +37,15 @@ test:
     - atlasclient.exceptions
     - atlasclient.models
     - atlasclient.utils
+  commands:
+    - pip check
 
 about:
   home: https://github.com/jpoullet2000/atlasclient
   license: Apache 2.0
   license_family: APACHE
   license_file: LICENSE
-  summary: 'Apache Atlas client in Python'
+  summary: Apache Atlas client in Python
   description: |
     **Apache Atlas client in Python**
 
