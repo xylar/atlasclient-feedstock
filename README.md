@@ -163,4 +163,5 @@ Feedstock Maintainers
 =====================
 
 * [@BrentDorsey](https://github.com/BrentDorsey/)
+* [@xylar](https://github.com/xylar/)
 
